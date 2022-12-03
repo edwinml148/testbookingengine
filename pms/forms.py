@@ -2,7 +2,7 @@ from datetime import datetime
 from django import forms
 from django.forms import ModelForm
 
-from .models import Booking, Customer
+from .models import Booking, Customer, Room
 
 
 class RoomSearchForm(ModelForm):
@@ -55,4 +55,12 @@ class BookingFormExcluded(ModelForm):
             'guests': forms.HiddenInput(),
             'total': forms.HiddenInput(),
             'state': forms.HiddenInput(),
+        }
+
+
+class RoomForm(ModelForm):
+     class Meta:
+        model = Room
+        fields = ['name']
+        labels = {
         }
